@@ -26,9 +26,10 @@ module App
 
   def self.error_message(error)
     messages = {
-      invalid_file: 'Invalid file name or file does not exists.',
+      empty_results: 'Empty board, there are no results.',
       invalid_content: 'Invalid file contents.',
-      empty_results: 'Empty board, there are no results.'
+      invalid_file: 'Invalid file name or file does not exists.',
+      invalid_option: 'Invalid option, please try again or use -h for help'
     }
     return '' unless messages.key? error
 
