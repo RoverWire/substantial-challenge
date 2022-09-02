@@ -1,4 +1,4 @@
-class App
+module App
   def self.run(file)
     unless BoardParser.valid_file?(file)
       puts error_message(:invalid_file)

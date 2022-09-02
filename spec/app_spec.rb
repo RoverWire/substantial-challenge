@@ -1,10 +1,10 @@
 describe 'App' do
-  let(:alphabetical_teams) { { 'Bars' => 5, 'Bears' => 5, 'Beers' => 5, 'Zoo' => 3 } }
-  let(:hash_teams) { { 'Snakes' => 5, 'Bears' => 1, 'Ants' => 0 } }
-
   describe '#run' do
+    let(:input_file) { 'spec/fixtures/sample-input.txt' }
+    let(:invalid_file) { 'Gemfile' }
+
     it 'performs file parser' do
-      expectation = expect { App.run('sample-input.txt') }
+      expectation = expect { App.run(input_file) }
       expectation.to output(include('1. Tarantulas, 6 pts')).to_stdout
     end
 
@@ -14,19 +14,22 @@ describe 'App' do
     end
 
     it 'outputs messages if no games content found' do
-      expectation = expect { App.run('README.md') }
+      expectation = expect { App.run(invalid_file) }
       expectation.to output("#{App.error_message(:invalid_content)}\n").to_stdout
     end
   end
 
   describe '#output' do
+    let(:alphabetical_sorting) { { 'Bars' => 5, 'Bears' => 5, 'Beers' => 5, 'Zoo' => 3 } }
+    let(:points_sorting) { { 'Snakes' => 5, 'Bears' => 1, 'Ants' => 0 } }
+
     it 'prints list ordered by points' do
-      expectation = expect { App.output(hash_teams) }
+      expectation = expect { App.output(points_sorting) }
       expectation.to output(include('1. Snakes, 5 pts', '2. Bears, 1 pt', '3. Ants, 0 pts')).to_stdout
     end
 
     it 'prints list ordered by name' do
-      expectation = expect { App.output(alphabetical_teams) }
+      expectation = expect { App.output(alphabetical_sorting) }
       expectation.to output(include('1. Bars', '2. Bears', '3. Beers')).to_stdout
     end
   end
