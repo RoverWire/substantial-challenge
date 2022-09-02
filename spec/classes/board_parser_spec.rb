@@ -1,5 +1,3 @@
-require_relative '../../app/classes/board_parser'
-
 describe 'BoardParser' do
   let(:hash_teams) { { 'Bears' => 1, 'Snakes' => 5, 'Ants' => 0 } }
   let(:alphabetical_teams) { { 'Bears' => 5, 'Beers' => 5, 'Bars' => 5, 'Zoo' => 3 } }
@@ -45,20 +43,6 @@ describe 'BoardParser' do
       expect(@parser.teams.keys[1]).to eq('Bears')
       expect(@parser.teams.keys[2]).to eq('Beers')
       expect(@parser.teams.keys[3]).to eq('Zoo')
-    end
-  end
-
-  describe '#output_results' do
-    it 'outputs list ordered by points' do
-      @parser.teams = hash_teams
-      expectation = expect { @parser.output_results }
-      expectation.to output(include('1. Snakes, 5 pts', '2. Bears, 1 pt', '3. Ants, 0 pts')).to_stdout
-    end
-
-    it 'outputs list ordered by name' do
-      @parser.teams = alphabetical_teams
-      expectation = expect { @parser.output_results }
-      expectation.to output(include('1. Bars', '2. Bears', '3. Beers')).to_stdout
     end
   end
 end

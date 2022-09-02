@@ -8,6 +8,9 @@ Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
+Lint/EmptyBlock:
+  Exclude:
+    - Rakefile
 Lint/RaiseException:
   Enabled: true
 Lint/StructNewOverride:

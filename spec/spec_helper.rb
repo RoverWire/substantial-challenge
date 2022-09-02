@@ -1,3 +1,6 @@
+require_relative '../app/app'
+require_relative '../app/classes/board_parser'
+
 RSpec.configure do |config|
   config.color = true
 
