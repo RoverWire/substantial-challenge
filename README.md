@@ -1,50 +1,104 @@
-## The Problem
+# Board Parser
 
-We want you to create a command-line application that will calculate the
-ranking table for a soccer league.
+This script parses soccer games data from a text file and sort teams by points descending and team name ascending as described on the [original problem](problem.md)
 
-### Input/output
+## Pre Requirements
 
-The input and output will be text. Your solution should parse the provided
-`sample-input.txt` file via stdin (pipe or redirect) or by parsing a file passed
-by name on the command line. Your solution should output the correct result via
-stdout to the console.
+- Ruby > 2.7.1
+- Unix based OS [Linux, MacOS]
 
-The input contains results of games, one per line. See `sample-input.txt` for
-details. The output should be ordered from most to least points and _exactly
-match_ the contents of `expected-output.txt`.
+## Setup
 
-You can expect that the input will be well-formed. There is no need to add
-special handling for malformed input files.
+1.- Clone this repository in your local machine
 
-### The rules
+```shell
+$ git clone git@github.com:substantial/developer-candidate-roverwire.git
+```
 
-In this league, a draw (tie) is worth 1 point and a win is worth 3 points. A
-loss is worth 0 points. If two or more teams have the same number of points,
-they should have the same rank and be printed in alphabetical order (as in the
-tie for 3rd place in the sample data).
+2.- Install dependencies
 
-### Guidelines
+```shell
+$ bundle install
+```
+That's it!
 
-This should be implemented in Ruby.
+## Usage
 
-Your solution should be able to be run (and if applicable, built) from the
-command line. Please include appropriate scripts and instructions for
-running your application and your tests.
+There are two ways to use the parser tool:
 
-If you use other libraries installed by a common package manager
-(rubygems/bundler, npm, pip, gradle), it is not necessary to commit the
-installed packages.
+```shell
+# Using plain ruby CLI
+$ ruby parse.rb
+```
 
-We write automated tests and we would like you to do so as well.
+```shell
+# Using rake task
+$ rake parse
 
-We appreciate well factored, object-oriented or functional designs.
+```
 
-Please document any steps necessary to run your solution and your tests.
+### CLI
 
-### Platform support
+To display options available just type `ruby parse.rb -h` to show usage reference. Also when no option is provided this information will be displayed.
 
-This will be run in a unix-ish environment (OS X). If you choose to use a
-compiled language, please keep this in mind. (Dependency on Xcode is acceptable
-for objective-c solutions) Please use platform-agnostic constructs where
-possible (line-endings and file-path-separators are two problematic areas).
+```shell
+$ ruby pare.rb 
+Parse soccer games information from a file
+Usage: parse.rb [options]
+
+Specific options:
+    -i, --input [STRING]             Provides a file input path
+    -h, --help                       Show this message
+```
+
+To parse files, use the `-i` or  `--input` option to provide a file input.
+
+```shell
+$ ruby parse.rb -i path/to/input-file.txt
+1. Tarantulas, 6 pts
+2. Lions, 5 pts
+3. FC Awesome, 1 pt
+3. Snakes, 1 pt
+5. Grouches, 0 pts
+```
+### Rake Task
+
+Rake task usage is very similar, the main difference is you need to add an extra double dash on the commands
+
+```shell
+$ rake parse -- -h
+Usage: rake parse -- [options]
+    -i, --input [STRING]             Provides a file input path
+    -h, --help                       Show this message
+```
+
+To parsing files using rake, just type:
+
+```shell
+$ rake parse -- -i path/to/input-file.txt
+```
+
+## Testing
+
+To run the specs / unit testing there are two options:
+
+```shell
+$ rspec
+
+# OR
+
+$ rake spec
+```
+
+This project includes rake tasks for Rspec and Rubocop. Both are setted as default rake task.
+
+```shell
+# To run specs only
+$ rake spec
+
+# To run rubocop linter
+$ rake rubocop
+
+# For run both
+$ rake
+```
