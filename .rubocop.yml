@@ -12,6 +12,9 @@ Lint/RaiseException:
   Enabled: true
 Lint/StructNewOverride:
   Enabled: true
+Metrics/BlockLength:
+  Exclude:
+    - spec/classes/board_parser_spec.rb
 Style/BlockComments:
   Enabled: false
 Style/ExponentialNotation:
