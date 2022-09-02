@@ -7,6 +7,8 @@ class BoardParser
   end
 
   def load_data(file_path)
+    return unless !file_path.nil? && File.exist?(file_path)
+
     File.foreach(file_path) do |game|
       data = parse_game(game)
       update_teams_score(data)
