@@ -24,18 +24,13 @@ class App
     end
   end
 
-  def self.valid_file?(file_name)
-    return true if !file_name.empty? || File.exist?(file_name)
-
-    false
-  end
-
   def self.error_message(error)
     messages = {
       invalid_file: 'Invalid file name or file does not exists.',
       invalid_content: 'Invalid file contents.',
       empty_results: 'Empty board, there are no results.'
     }
+    return '' unless messages.key? error
 
     "Parse Error: #{messages[error]}"
   end
