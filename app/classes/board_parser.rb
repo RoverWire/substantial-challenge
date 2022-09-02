@@ -14,9 +14,9 @@ class BoardParser
   end
 
   def output_results
+    sort_teams
     order = 1
-    data = @teams.to_a.sort_by { |k, v| [-v, k] }.to_h
-    data.each do |k, v|
+    @teams.each do |k, v|
       puts "#{order}. #{k}, #{v} #{v == 1 ? 'pt' : 'pts'}"
       order += 1
     end
@@ -43,5 +43,11 @@ class BoardParser
     return 1 if team_goals == rival_goals
 
     0
+  end
+
+  def sort_teams
+    return unless @teams.size.positive?
+
+    @teams = @teams.to_a.sort_by { |k, v| [-v, k] }.to_h
   end
 end
