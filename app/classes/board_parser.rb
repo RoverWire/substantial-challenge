@@ -7,21 +7,20 @@ class BoardParser
   end
 
   def load_data(file_path)
-    return unless !file_path.nil? && File.exist?(file_path)
+    return unless self.class.valid_file?(file_path)
 
     File.foreach(file_path) do |game|
       data = parse_game(game)
       update_teams_score(data)
     end
+
+    sort_teams
   end
 
-  def output_results
-    sort_teams
-    order = 1
-    @teams.each do |k, v|
-      puts "#{order}. #{k}, #{v} #{v == 1 ? 'pt' : 'pts'}"
-      order += 1
-    end
+  def self.valid_file?(file_name)
+    return true unless file_name.nil? || file_name.empty? || !File.exist?(file_name)
+
+    false
   end
 
   private
