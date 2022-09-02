@@ -18,6 +18,7 @@ Lint/StructNewOverride:
 Metrics/BlockLength:
   Exclude:
     - spec/classes/board_parser_spec.rb
+    - spec/app_spec.rb
 Style/BlockComments:
   Enabled: false
 Style/ExponentialNotation:

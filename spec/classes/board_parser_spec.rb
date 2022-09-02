@@ -26,7 +26,7 @@ describe 'BoardParser' do
   end
 
   describe '#sort_teams' do
-    it 'should order from most to least points' do
+    it 'sorts teams from most to least points' do
       @parser.teams = hash_teams
       @parser.send(:sort_teams)
       expect(@parser.teams).to eq({ 'Snakes' => 5, 'Bears' => 1, 'Ants' => 0 })
@@ -35,7 +35,7 @@ describe 'BoardParser' do
       expect(@parser.teams.keys[2]).to eq('Ants')
     end
 
-    it 'should order alphabetical order after points' do
+    it 'sorts teams in alphabetical order after points' do
       @parser.teams = alphabetical_teams
       @parser.send(:sort_teams)
       expect(@parser.teams).to eq({ 'Bars' => 5, 'Bears' => 5, 'Beers' => 5, 'Zoo' => 3 })
