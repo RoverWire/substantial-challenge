@@ -1,5 +1,7 @@
 # Board Parser
 
+![Ruby CI](https://github.com/substantial/developer-candidate-roverwire/actions/workflows/ruby.yml/badge.svg)
+
 This script parses soccer games data from a text file and sort teams by points descending and team name ascending as described on the [original problem](problem.md)
 
 ## Pre Requirements
