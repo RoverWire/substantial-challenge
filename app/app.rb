@@ -17,10 +17,12 @@ module App
   end
 
   def self.output(data)
-    order = 1
+    order = 0
+    last_value = 0
     data.each do |k, v|
+      order += 1 unless last_value == v
       puts "#{order}. #{k}, #{v} #{v == 1 ? 'pt' : 'pts'}"
-      order += 1
+      last_value = v
     end
   end
 

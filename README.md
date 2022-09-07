@@ -92,7 +92,7 @@ $ rspec
 $ rake spec
 ```
 
-This project includes rake tasks for Rspec and Rubocop. Both are setted as default rake task.
+This project includes rake tasks for Rspec and Rubocop. Both are set as default rake task.
 
 ```shell
 # To run specs only

@@ -30,7 +30,7 @@ describe 'App' do
 
     it 'prints list ordered by name' do
       expectation = expect { App.output(alphabetical_sorting) }
-      expectation.to output(include('1. Bars', '2. Bears', '3. Beers')).to_stdout
+      expectation.to output(include('1. Bars', '1. Bears', '1. Beers')).to_stdout
     end
   end
 
