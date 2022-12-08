@@ -14,7 +14,7 @@ This script parses soccer games data from a text file and sort teams by points d
 1.- Clone this repository in your local machine
 
 ```shell
-$ git clone git@github.com:substantial/developer-candidate-roverwire.git
+$ git clone git@github.com:RoverWire/substantial-challenge.git
 ```
 
 2.- Install dependencies
